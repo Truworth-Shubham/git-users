@@ -1,13 +1,77 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.home-conatiner {
+  background-color: #91caff;
+  padding: 0 40px;
+}
+
+.home-conatiner>h1 {
+  text-align: center;
+  color: white;
+  padding: 50px 0;
+}
+
+.card-flex-conatiner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card-box {
+  width: 400px;
+  max-width: 400px;
+  background-color: white;
+  margin-bottom: 20px;
+  display: flex;
+  padding: 5px;
+}
+
+.card-image {
+  max-width: 120px;
+}
+
+.card-info-main {
+  border: 1px solid black;
+  width: 100%;
+  margin-left: 2px;
+  text-align: center;
+}
+
+.card-info-main h3 {
+  text-transform: uppercase;
+}
+
+.card-info-activities {
+  background-color: #eeebeb;
+  display: flex;
+  justify-content: space-around;
+  margin: 8px 0;
+}
+
+.card-user-name {
+  padding: 10px 0;
+  text-transform: uppercase;
+}
+
+.card-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  padding: 5px 0;
+  color: grey;
+}
+
+.card-info-activities p {
+  font-size: x-large;
+}
+
+.card-info-activities h5 {
+  font-size: small;
+  color: gray;
 }
