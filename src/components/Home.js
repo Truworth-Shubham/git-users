@@ -6,7 +6,7 @@ const Home = () => {
 
   const URL = "https://api.github.com/users"
   const allUsers = useFetch(URL)
-  
+
   return (
 
     <div className='home-conatiner'>
@@ -21,7 +21,7 @@ const Home = () => {
         }
       </div>
     </div>
-    
+
   )
 }
 
