@@ -12,7 +12,6 @@ const Userscard = ({ data }) => {
   const getInfo = async () => {
     try {
       const tempInfo = (await axios.get(data && data.url)).data
-      console.log(tempInfo)
       const tempObj = {
         company: tempInfo.company,
         followers: tempInfo.followers,
@@ -30,7 +29,7 @@ const Userscard = ({ data }) => {
     <>
       <div className='card-box'>
         <div className='card-image'>
-          <img src={data.avatar_url} width='100%' />
+          <img src={data.avatar_url} width='100%' alt='not found'/>
         </div>
         <div className='card-info-main'>
           <h3>{data.login}</h3>
