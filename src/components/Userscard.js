@@ -10,14 +10,20 @@ const Userscard = ({ data }) => {
   }, [])
 
   const getInfo = async () => {
-    const tempInfo = (await axios.get(data && data.url)).data
-    const tempObj = {
-      company: tempInfo.company,
-      followers: tempInfo.followers,
-      following: tempInfo.following,
-      articles: tempInfo.public_repos
+    try {
+      const tempInfo = (await axios.get(data && data.url)).data
+      console.log(tempInfo)
+      const tempObj = {
+        company: tempInfo.company,
+        followers: tempInfo.followers,
+        following: tempInfo.following,
+        articles: tempInfo.public_repos
+      }
+      setInfo(tempObj)
+
+    } catch (error) {
+      console.log("first")
     }
-    setInfo(tempObj)
   }
 
   return (
