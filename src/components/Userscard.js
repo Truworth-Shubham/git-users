@@ -1,35 +1,26 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import useFetch from '../hooks/useFetch'
 
 const Userscard = ({ data }) => {
 
   const [info, setInfo] = useState(null)
 
-  useEffect(() => {
-    getInfo()
-  }, [])
+  const userInfo = useFetch()
 
-  const getInfo = async () => {
-    try {
-      const tempInfo = (await axios.get(data && data.url)).data
-      const tempObj = {
-        company: tempInfo.company,
-        followers: tempInfo.followers,
-        following: tempInfo.following,
-        articles: tempInfo.public_repos
-      }
-      setInfo(tempObj)
-
-    } catch (error) {
-      console.log("first")
-    }
+  const obj = {
+    fun: (as) => setInfo(as),
+    url: data.url
   }
+
+  useEffect(() => {
+    userInfo.makeRequest(obj)
+  }, [])
 
   return (
     <>
       <div className='card-box'>
         <div className='card-image'>
-          <img src={data.avatar_url} width='100%' alt='not found'/>
+          <img src={data.avatar_url} width='100%' alt='not found' />
         </div>
         <div className='card-info-main'>
           <h3>{data.login}</h3>
@@ -45,7 +36,7 @@ const Userscard = ({ data }) => {
             </div>
             <div>
               <h5>Articles</h5>
-              <p>{info && info.articles}</p>
+              <p>{info && info.public_repos}</p>
             </div>
           </div>
         </div>

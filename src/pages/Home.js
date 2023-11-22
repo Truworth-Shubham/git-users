@@ -1,11 +1,21 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import useFetch from '../hooks/useFetch'
 import Userscard from '../components/Userscard'
 
 const Home = () => {
 
+  const [data,setData] = useState("")
+
   const URL = "http://api.github.com/users"
-  const allUsers = useFetch(URL)
+  const obj = {
+    fun: (as)=>setData(as),
+    url: URL
+  }
+  const allUsers = useFetch(obj)
+
+  useEffect(()=>{
+    allUsers && allUsers.makeRequest(obj)
+  },[])  
 
   return (
 
@@ -13,9 +23,9 @@ const Home = () => {
       <h1>Git-hub users</h1>
       <div className='card-flex-conatiner'>
         {
-          allUsers && allUsers.map((el) => {
+          data && data.map((el,index) => {
             return (
-              <Userscard data={el} />
+              <Userscard data={el} key={index}/>
             )
           })
         }

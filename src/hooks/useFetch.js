@@ -1,16 +1,20 @@
 import axios from "axios";
-import { useState } from "react";
 
+const useFetch = () => {
 
-const useFetch = (url) => {
-    const [data, setData] = useState([])
-    try {
-        axios.get(url).then((res) => setData(res.data)).catch((e) => console.log(e))
-        return data
-    } catch (error) {
-        console.log(error)
+    let userInfo
+
+    const makeRequest = async ({ url, fun }) => {
+        try {
+            const response = await axios.get(url)
+            userInfo = response.data
+            fun(response.data)
+        } catch (error) {
+            console.log(error.message)
+        }
     }
-
+    
+    return { makeRequest }
 }
 
 export default useFetch
