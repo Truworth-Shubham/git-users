@@ -5,7 +5,7 @@ const Userscard = ({ data }) => {
 
   const [info, setInfo] = useState(null)
 
-  const userInfo = useFetch()
+  const {makeRequest} = useFetch()
 
   const obj = {
     fun: (as) => setInfo(as),
@@ -13,7 +13,7 @@ const Userscard = ({ data }) => {
   }
 
   useEffect(() => {
-    userInfo.makeRequest(obj)
+    makeRequest(obj)
   }, [])
 
   return (

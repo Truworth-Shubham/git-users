@@ -11,10 +11,11 @@ const Home = () => {
     fun: (as)=>setData(as),
     url: URL
   }
-  const allUsers = useFetch(obj)
+
+  const {makeRequest} = useFetch()
 
   useEffect(()=>{
-    allUsers && allUsers.makeRequest(obj)
+   makeRequest(obj)
   },[])  
 
   return (
